@@ -99,6 +99,14 @@ public class GestorDataBase implements dao {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Fail");
+        }finally{
+            if(ac != null){
+                try {
+                    ac.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(GestorDataBase.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 
@@ -127,6 +135,14 @@ public class GestorDataBase implements dao {
             int contador = contarTodos();
             System.out.println(contador);
         } catch (SQLException e) {
+        }finally{
+            if(ac != null){
+                try {
+                    ac.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(GestorDataBase.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 
@@ -154,7 +170,7 @@ public class GestorDataBase implements dao {
             ac = conn.prepareStatement("SELECT * FROM Contactos where name like  '%" + buscar + "%'");
             rs = ac.executeQuery();
             filas = new String[6];
-
+            if(rs.next()==true){
             while (rs.next()) {
 
                 filas[0] = rs.getString("Id");
@@ -171,12 +187,22 @@ public class GestorDataBase implements dao {
                 model.addRow(filas);
                 System.out.println("");
             }
-        } catch (NullPointerException f) {
-
-            JOptionPane.showMessageDialog(null, "Contact-name not found");
-            f.printStackTrace();
-
+            }else{
+            JOptionPane.showMessageDialog(null,"No hay registros con ese nombre");
+            }
         } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "algo salio mal en la busqueda");
+            e.printStackTrace();
+            
+        }finally{
+            if(ac != null){
+                try {
+                    ac.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(GestorDataBase.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 
