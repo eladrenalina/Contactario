@@ -403,7 +403,9 @@ public class Interfaz extends javax.swing.JFrame {
         if (fila >= 0) {
             String contacto = (String) tblContactos.getValueAt(fila, 0);           
             if (JOptionPane.showConfirmDialog(null, "Are you sure you want to delete :  "+ txtNombre.getText()+" ?", "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                
             agenda.eliminar(contacto);
+            
             agenda.mostrarTodos();
             tblContactos.setModel(agenda.model);
             limpiarTxt();

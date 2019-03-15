@@ -158,7 +158,19 @@ public class GestorDataBase implements dao {
                 ac.close();
             }
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar el contacto");
+            e.printStackTrace();
         }
+        finally{
+            if(ac != null){
+                try {
+                    ac.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(GestorDataBase.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        
     }
 
     @Override
@@ -215,6 +227,8 @@ public class GestorDataBase implements dao {
                 cantidad = rs.getInt("Count");
             }
         } catch (SQLException e) {
+            
+           
         }
         return cantidad;
     }
