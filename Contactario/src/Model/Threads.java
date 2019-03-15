@@ -35,7 +35,7 @@ public class Threads extends Thread {
             File destino = new File(carpetaDestino);
             if (destino.exists()) {
               } else {
-                System.out.println("directory already");
+                System.out.println("directory already ");
                 destino.mkdir();
             }
             archivo = new FileReader(new File(origenConArchivo));
@@ -45,9 +45,9 @@ public class Threads extends Thread {
 
             while (!salir) {
                 
-                    FactoryDAO factory=new FactoryDAO();
+                    DaoFactory factory=new DaoFactory();
                     
-                    DAO agendaParaImportaciones= factory.createJDBCServer_DAO();
+                    dao agendaParaImportaciones= factory.createJDBCServer_DAO();
                 try {
                     String linea = br.readLine();
                     if (linea != null) {

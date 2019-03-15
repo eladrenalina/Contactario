@@ -2,7 +2,7 @@
 package Model;
 
 import Model.Contacts;
-import Model.GestorBaseDatosDAOImpl;
+import Model.GestorDataBase;
 import Model.Threads;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    GestorBaseDatosDAOImpl agenda = new GestorBaseDatosDAOImpl();
+    GestorDataBase agenda = new GestorDataBase();
     DefaultTableModel model;
     Threads e = new Threads();
 
@@ -396,7 +396,6 @@ public class Interfaz extends javax.swing.JFrame {
         }else{JOptionPane.showMessageDialog(null, "Not selected any contact to modify");}
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         //BORRAR
         
