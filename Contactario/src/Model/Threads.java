@@ -47,7 +47,7 @@ public class Threads extends Thread {
                 
                     DaoFactory factory=new DaoFactory();
                     
-                    dao agendaParaImportaciones= factory.createJDBCServer_DAO();
+                    DAO agendaParaImportaciones= factory.createJDBCServer_DAO();
                 try {
                     String linea = br.readLine();
                     if (linea != null) {

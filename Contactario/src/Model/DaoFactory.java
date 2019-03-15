@@ -11,12 +11,12 @@ package Model;
  */
 public class DaoFactory {
     
-    public dao createDB_AgendaDAO() {
-        return  new GestorDataBase(); 
+    public DAO createDB_AgendaDAO() {
+        return  new GestorDataBaseDAOImpl(); 
     }
     
-    public dao createJDBCServer_DAO(){
-    return new GestorDataBase();
+    public DAO createJDBCServer_DAO(){
+    return new GestorDataBaseDAOImpl();
     }
     
 }

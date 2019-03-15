@@ -2,7 +2,7 @@
 package Model;
 
 import Model.Contacts;
-import Model.GestorDataBase;
+import Model.GestorDataBaseDAOImpl;
 import Model.Threads;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    GestorDataBase agenda = new GestorDataBase();
+    GestorDataBaseDAOImpl agenda = new GestorDataBaseDAOImpl();
     DefaultTableModel model;
     Threads e = new Threads();
 
