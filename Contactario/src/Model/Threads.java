@@ -5,9 +5,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import javax.swing.JOptionPane;
 
@@ -113,5 +115,19 @@ public class Threads extends Thread {
         }
 
     }
+    public void ejemplo(String carpetaOrigen) throws IOException{
+        String carpeta = "./"+carpetaOrigen;
+        while(!salir){
+            DirectoryStream<Path> ds = Files.newDirectoryStream(Paths.get(carpeta),"*.csv");
+            for(Path p : ds){
+                
+            }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+               ex.printStackTrace();
+            }
+        }
 
+}
 }
