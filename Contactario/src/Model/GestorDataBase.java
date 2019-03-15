@@ -177,20 +177,20 @@ public class GestorDataBase implements dao {
     public void buscar(String buscar) {
         try {
             System.out.println("search to..." + buscar);
-            String[] titulos = {"Id", "Name", "Last Name", "Nick", "E-mail", "Phone"};
+            String[] titulos = {"Id", "Nombre", "Apellido", "Alias", "EMAIL", "Telefono"};
             model = new DefaultTableModel(null, titulos);
-            ac = conn.prepareStatement("SELECT * FROM Contactos where name like  '%" + buscar + "%'");
+            ac = conn.prepareStatement("SELECT * FROM CONTACTO where NOMBRE like  '%" + buscar + "%'");
             rs = ac.executeQuery();
             filas = new String[6];
             if(rs.next()==true){
             while (rs.next()) {
 
-                filas[0] = rs.getString("Id");
-                filas[1] = rs.getString("name");
-                filas[2] = rs.getString("Last Name");
-                filas[3] = rs.getString("Nick");
-                filas[4] = rs.getString("E-mail");
-                filas[5] = rs.getString("phone");
+                filas[0] = rs.getString("ID");
+                filas[1] = rs.getString("NOMBRE");
+                filas[2] = rs.getString("APELLIDO");
+                filas[3] = rs.getString("ALIAS");
+                filas[4] = rs.getString("Email");
+                filas[5] = rs.getString("Telefono");
                 String nombre = filas[1];
                 String apellido = filas[2];
                 String alias = filas[3];
@@ -198,6 +198,7 @@ public class GestorDataBase implements dao {
 
                 model.addRow(filas);
                 System.out.println("");
+                rs.close();
             }
             }else{
             JOptionPane.showMessageDialog(null,"No hay registros con ese nombre");

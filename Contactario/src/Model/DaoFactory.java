@@ -6,8 +6,8 @@
 package Model;
 
 /**
- *
- * @author Emmanuel
+ * 
+ * @author plbogado
  */
 public class DaoFactory {
     
