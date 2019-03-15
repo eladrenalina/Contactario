@@ -42,6 +42,10 @@ public class Threads extends Thread {
             salir = false;
 
             while (!salir) {
+                
+                    DaoFactory factory=new DaoFactory();
+                    
+                    dao agendaParaImportaciones= factory.createJDBCServer_DAO();
                 try {
                     String linea = br.readLine();
                     if (linea != null) {
@@ -60,9 +64,10 @@ public class Threads extends Thread {
                         System.out.println("-Service Found-");
 
                         Contacts contactoCsv = new Contacts(nombre, apellido, alias, mail, numero);
-
-                        GestorDataBase cd = new GestorDataBase(contactoCsv);
-                        cd.agregar(contactoCsv);
+                        
+                        agendaParaImportaciones.agregar(contactoCsv);
+                        //GestorDataBase cd = new GestorDataBase(contactoCsv);
+                        //cd.agregar(contactoCsv);
                         System.out.println("Contact " + contactoCsv.getNombre() + " Has been added to Database");
                         
                         Threads.sleep(300);
